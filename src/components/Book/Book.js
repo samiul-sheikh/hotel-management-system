@@ -31,8 +31,18 @@ const Book = () => {
         setSelectedDate(newDates);
     };
 
+    // create/send data to database
     const handleBooking = () => {
-
+        const newBooking = { ...loggedInUser, ...selectedDate };
+        fetch('http://localhost:8000/addBooking', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newBooking)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
     }
 
     return (
