@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
-import firebaseConfig from './firebase.config';
+import firebaseConfig from '../../config/firebase.config'
 import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router';
 
@@ -16,7 +16,6 @@ const Login = () => {
     const history = useHistory();
     const location = useLocation();
     const { from } = location.state || { from: { pathname: "/" } };
-
 
     const handleGoogleSignIn = () => {
         var provider = new firebase.auth.GoogleAuthProvider();
